@@ -19,6 +19,7 @@ insert into tblSemesterOfferings(semester_offering_id, course_id, startdate, end
 --student_courses - Student SemesterOffering
 --drop table 
 insert into jnctStudentSemesterOffering(student_id, semester_offering_id) values(1,1)
+insert into jnctStudentSemesterOffering(student_id, semester_offering_id) values(2,1)
 insert into jnctStudentSemesterOffering(student_id, semester_offering_id) values(2,2)
 insert into jnctStudentSemesterOffering(student_id, semester_offering_id) values(3,3)
 insert into jnctStudentSemesterOffering(student_id, semester_offering_id) values(4,4)
@@ -73,7 +74,7 @@ GO
 alter proc usp_getTop4RatedCourses(  @semesterStart datetime, @semesterEnd datetime, @rankQuestionID int, @ans3 varchar(30))
 as
 BEGIN
-	select top(2)  c.course_name, count(ans.answer) as votes
+	select top(4)  c.course_name, count(ans.answer) as votes
 	into #top4Courses--using temp table as this is the most performant. Stores pre-calculated values so that they can be used in union query. Also temp tables can be 
 	from tblAnswers ans
 		inner join tblQuestions q on q.question_id=ans.question_id
@@ -126,7 +127,7 @@ BEGIN
 END
 GO
 
-exec usp_getResponses @semesterOfferingID=1 
+exec usp_getResponses @semesterOfferingID=4
 GO
 
 --3. courses at 80% or higher

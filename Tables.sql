@@ -148,8 +148,7 @@ GO
 
 CREATE TABLE [dbo].[tblTemplates](
 	[template_id] [int] NOT NULL,
-	[template_name] [varchar](30) NOT NULL,
-	[course_id] [int] NOT NULL,
+	[template_name] [varchar](30) NOT NULL
  CONSTRAINT [PK_tblTemplates] PRIMARY KEY CLUSTERED 
 (
 	[template_id] ASC
@@ -224,11 +223,6 @@ GO
 ALTER TABLE [dbo].[tblSemesterOfferings] CHECK CONSTRAINT [FK_tblSemesterOfferings_tblCourses]
 GO
 
-ALTER TABLE [dbo].[tblTemplates]  WITH CHECK ADD  CONSTRAINT [FK_tblTemplates_tblCourses] FOREIGN KEY([course_id])
-REFERENCES [dbo].[tblCourses] ([course_id])
-GO
 
-ALTER TABLE [dbo].[tblTemplates] CHECK CONSTRAINT [FK_tblTemplates_tblCourses]
-GO
 
 
