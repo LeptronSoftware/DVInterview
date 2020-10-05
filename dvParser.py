@@ -115,7 +115,7 @@ fileAddrSummary = argumentList[3]
 dvDateFilter = ""
 if len(argumentList) == 5:
     dvDateFilter=argumentList[4]
-print("dvDateFilter " + dvDateFilter )
+
 with open(filepath) as fp:
    line = fp.readline()
    cnt = 1     
@@ -163,6 +163,4 @@ with open( fileAddrSummary, "w") as wAddr:
         else:
             wAddr.write(",\n")
     wAddr.write("}\n")
-#add to hash by date
-    #add to hash by userID
-        #add to ip hash
+
