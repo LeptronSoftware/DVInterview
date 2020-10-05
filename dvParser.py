@@ -1,7 +1,8 @@
 import sys
 
 from datetime import datetime
-
+#####script takes 4 arguments, the first is the log to parse, the second is the output file for usersummary, the third is the output for the 
+### reverse mapping summary. The fourth optional argument is the date to filter the log by.
 class ReverseMappingSummary:
     domainNames = dict()
 
